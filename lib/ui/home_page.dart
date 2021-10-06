@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:reminder_app/services/notification_services.dart';
 import 'package:reminder_app/services/theme_services.dart';
 
 class HomePage extends StatefulWidget {
@@ -9,6 +11,13 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  @override
+  void initState() {
+    super.initState();
+    NotifyHelper();
+    NotifyHelper().initializeNotification();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,6 +38,9 @@ class _HomePageState extends State<HomePage> {
       leading: GestureDetector(
         onTap: () {
           ThemeService().switchTheme();
+          NotifyHelper().displayNotification(
+              title: "Theme Change",
+              body: Get.isDarkMode ? "Light Mode" : "Dark Mode");
         },
         child: Icon(
           Icons.nightlight_round,
