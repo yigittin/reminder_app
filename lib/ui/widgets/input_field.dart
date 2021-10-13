@@ -41,6 +41,7 @@ class MyInputField extends StatelessWidget {
                       autofocus: false,
                       cursorColor:
                           Get.isDarkMode ? Colors.grey[100] : Colors.grey[700],
+                      controller: controller,
                       style: subTitleStlye,
                       decoration: InputDecoration(
                         hintText: hint,
