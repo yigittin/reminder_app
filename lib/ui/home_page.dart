@@ -29,14 +29,17 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: _appBar(),
-      body: Column(
-        children: [
-          _addTaskBar(),
-          _addDateBar(),
-        ],
-      ),
-    );
+        appBar: _appBar(),
+        body: SafeArea(
+          minimum: EdgeInsets.zero,
+          top: false,
+          child: Column(
+            children: [
+              _addTaskBar(),
+              _addDateBar(),
+            ],
+          ),
+        ));
   }
 
   _addDateBar() {
